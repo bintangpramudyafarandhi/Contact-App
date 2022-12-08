@@ -1,0 +1,49 @@
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid;
+  }
+
+  table {
+    text-align: center;
+  }
+
+  h1, p {
+    text-align: center;
+  }
+</style>
+
+<h1>Hello to contact</h1>
+<p>This is contact Page</p>
+
+<center>
+  <% if (cont.length <1) { %>
+    <p>Data not found!</p>
+    <% } else { %>
+  <table class="table w-25">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <% i = 0 %>
+    <% cont.forEach(contact => { %>
+    <tbody>
+      <tr>
+        <td><%= i+=1 %> </td>
+        <td><%= contact.name %></td>
+        <td><%= contact.mobile %> </td>
+        <td><%= contact.email %> </td>
+        <td><a class="btn btn-primary" href="/contact/<%= contact.name %> " role="button">Details</a></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <a class="btn btn-primary mb-3" href="/add" role="button">Add New Contact</a>
+  <% } %>
+</center>
