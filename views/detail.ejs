@@ -1,4 +1,27 @@
-<h1>Contact Detail</h1>
-<p>Nama : <%= getDetail.name %>
-<p>Email : <%= getDetail.email %> </p>
-<p>Mobile : <%= getDetail.mobile %> </p>
+<style>
+    /* .btn {
+        margin-left: 1px;
+        margin-right: 1px;
+    } */
+
+    .card-header {
+      font-size: 20px;
+      font-weight: 600;
+    }
+</style>
+
+<div class="container w-25">
+  <div class="card border-primary mb-3 mt-3 m-auto">
+    <div class="card-header text-dark m-auto">Contact Detail</div>
+    <div class="card-body m-auto">
+      <p class="card-text">Name : <%= getDetail.name %> </p>
+      <p class="card-text">Email : <%= getDetail.email %> </p>
+      <p class="card-text">Mobile : <%= getDetail.mobile %> </p>
+      <form action="/delete/<%=getDetail.name%>" method="post">
+      <a class="btn btn-primary" href="/edit/<%= getDetail.name %> ">Edit</a>
+      <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete <%= getDetail.name %>?')">Delete</button>
+      <input type="hidden" name="dlt" value="<%= getDetail.name %>" >
+      </form>
+    </div>
+  </div>
+</div>

@@ -17,17 +17,18 @@
 <h1>Hello to contact</h1>
 <p>This is contact Page</p>
 
-<center>
+
   <% if (cont.length <1) { %>
     <p>Data not found!</p>
     <% } else { %>
-  <table class="table w-25">
+<div class="container w-75">      
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">No.</th>
         <th scope="col">Name</th>
-        <th scope="col">Mobile</th>
         <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -37,13 +38,13 @@
       <tr>
         <td><%= i+=1 %> </td>
         <td><%= contact.name %></td>
-        <td><%= contact.mobile %> </td>
         <td><%= contact.email %> </td>
+        <td><%= contact.mobile %> </td>
         <td><a class="btn btn-primary" href="/contact/<%= contact.name %> " role="button">Details</a></td>
       </tr>
       <% }) %>
     </tbody>
-  </table>
-  <a class="btn btn-primary mb-3" href="/add" role="button">Add New Contact</a>
-  <% } %>
-</center>
+  </table> 
+<a class="btn btn-primary mb-3" href="/add" role="button">Add New Contact</a>
+</div>
+<% } %>
